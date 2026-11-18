@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encomendas &amp; Contato | Doce &amp; Sabor Confeitaria Artesanal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-text">Doce <span class="logo-ampersand">&amp;</span> Sabor</span>
+                <span class="logo-tagline">CONFEITARIA ARTESANAL</span>
+            </a>
+            
+            <nav class="nav-menu" aria-label="Menu Principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="cardapio.html">Cardápio Completo</a></li>
+                    <li><a href="galeria.html">Portfólio</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/5519983850132?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." class="btn-whatsapp-header" target="_blank" rel="noopener noreferrer">
+                    💬 Solicitar Orçamento
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO DE CONTATO E ORÇAMENTO -->
+        <section id="contato" class="contato-section">
+            <div class="contato-container">
+                <div class="contato-info-col">
+                    <span class="section-tag">Contato &amp; Agendamento</span>
+                    <h1 class="section-title">Solicite seu Orçamento sem Compromisso</h1>
+                    <p class="contato-intro">
+                        Atendemos sob encomenda em Campinas, Valinhos, Vinhedo, Paulínia e toda a Região Metropolitana. Garanta a disponibilidade da sua data com antecedência!
+                    </p>
+
+                    <div class="info-list">
+                        <div class="info-card">
+                            <span class="info-icon">📍</span>
+                            <div>
+                                <strong>Ateliê em Campinas - SP</strong>
+                                <p>Atendimento presencial para degustação mediante agendamento prévio.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <span class="info-icon">⏰</span>
+                            <div>
+                                <strong>Horário de Atendimento</strong>
+                                <p>Terça a Sábado: 09h às 18h | Domingo: 09h às 12h</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <span class="info-icon">💬</span>
+                            <div>
+                                <strong>WhatsApp Oficial</strong>
+                                <p>(19) 98385-0132</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contato-form-col">
+                    <form class="contact-form" action="processa_orcamento.php" method="POST" enctype="multipart/form-data">
+                        <h2 class="form-title">Enviar Solicitação</h2>
+                        
+                        <div class="form-field">
+                            <label for="nome">Nome Completo *</label>
+                            <input type="text" id="nome" name="nome_cliente" minlength="3" maxlength="100" placeholder="Seu nome completo" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email_cliente" maxlength="120" placeholder="seu@email.com" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="telefone">WhatsApp (com DDD) *</label>
+                                <input type="tel" id="telefone" name="telefone_cliente" 
+                                       pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" 
+                                       title="Digite no formato: (19) 99999-9999"
+                                       placeholder="(19) 99999-9999" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="data-evento">Data do Evento *</label>
+                                <input type="date" id="data-evento" name="data_evento" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="linha-produto">Linha de Interesse *</label>
+                                <select id="linha-produto" name="linha_produto" required>
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="casamentos">Doces Finos &amp; Casamentos</option>
+                                    <option value="tematicos">Doces Personalizados Temáticos</option>
+                                    <option value="sobremesas">Sobremesas &amp; Pronta Entrega</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <fieldset class="form-field">
+                            <legend>Modalidade de Recebimento *</legend>
+                            <label><input type="radio" name="tipo_entrega" value="retirada" required> Retirada no Ateliê</label>
+                            <label><input type="radio" name="tipo_entrega" value="entrega"> Entrega Refrigerada no Evento</label>
+                        </fieldset>
+
+                        <div class="form-field">
+                            <label for="referencia">Foto de Referência/Inspiração (Opcional)</label>
+                            <input type="file" id="referencia" name="foto_referencia" accept="image/png, image/jpeg, image/webp">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="mensagem">Detalhes do Evento ou Dúvidas</label>
+                            <textarea id="mensagem" name="mensagem" rows="4" maxlength="1000" placeholder="Informe quantidade aproximada de convidados, tema ou doces desejados..."></textarea>
+                        </div>
+
+                        <div class="form-field">
+                            <label>
+                                <input type="checkbox" name="aceite_lgpd" value="1" required>
+                                Concordo com o uso dos meus dados para contato de orçamento.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit-form">Enviar Pedido de Orçamento ✨</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="brand-logo footer-logo">
+                    <span class="logo-text">Doce <span class="logo-ampersand">&amp;</span> Sabor</span>
+                    <span class="logo-tagline">CONFEITARIA ARTESANAL</span>
+                </a>
+                <p class="footer-desc">
+                    Alta confeitaria artesanal em Campinas e Região. Criamos memórias doces com acabamento refinado e sabor inigualável.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cardapio.html">Cardápio Completo</a></li>
+                    <li><a href="galeria.html">Portfólio</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">Canais Oficiais</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn">📸 Instagram @doceesabor.campinas</a>
+                    <a href="https://wa.me/5519983850132" target="_blank" rel="noopener noreferrer" class="social-btn">💬 Atendimento no WhatsApp</a>
+                    <a href="catalogo-doce-sabor.pdf" download class="social-btn">📥 Baixar Catálogo (PDF)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Doce &amp; Sabor - Confeitaria Artesanal por Yara Ribeiro. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
